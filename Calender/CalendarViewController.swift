@@ -19,7 +19,7 @@ class CalendarViewController: UIViewController {
         }
     }
     
-    lazy var sundayToSaturdayWeeks: [[Date]] = {
+    lazy var weeks: [[Date]] = {
         var dates = [[Date]]()
         for i in 0 ..< 4 {
             let date = Date().addingTimeInterval(Double(i) * 7 * 24 * 60 * 60)
@@ -64,16 +64,16 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sundayToSaturdayWeeks.count
+        return weeks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sundayToSaturdayWeeks[section].count
+        return weeks[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalenderDateCell", for: indexPath) as! CalendarDateCell
-        let date = sundayToSaturdayWeeks[indexPath.section][indexPath.row]
+        let date = weeks[indexPath.section][indexPath.row]
         cell.configure(by: date, isSelected: date == selectedDate)
         return cell
     }
@@ -89,11 +89,15 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.zero
+        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedDate = sundayToSaturdayWeeks[indexPath.section][indexPath.row]
+        let date = weeks[indexPath.section][indexPath.row]
+        guard CalendarDisplay(date: date).isDayBeforeToday == false else {
+            return
+        }
+        selectedDate = date
     }
     
 }
