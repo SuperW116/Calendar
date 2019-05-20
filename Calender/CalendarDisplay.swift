@@ -59,7 +59,7 @@ struct CalendarDisplay {
     }
     
     var monthAndDay: String {
-        return "\(month):\(day)"
+        return "\(month)/\(day)"
     }
     
     var isDayBeforeToday: Bool {
