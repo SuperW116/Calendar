@@ -23,15 +23,15 @@ class CalendarDateCell: UICollectionViewCell {
         let calendarDisplay = CalendarDisplay(date: date)
         dayOfTheWeekLabel.text = calendarDisplay.weekday
         dateLabel.text = calendarDisplay.day
-        if date < Date() {
-            dateLabel.textColor = UIColor(hex: "d0d0d0")
-        }
         if isSelected {
             dateView.backgroundColor = UIColor(hex: "3eb0ca")
             dateLabel.textColor = .white
         } else {
-            dateView.backgroundColor = UIColor(hex: "d0d0d0")
+            dateView.backgroundColor = UIColor(hex: "ebebeb")
             dateLabel.textColor = UIColor(hex: "383838")
+        }
+        if calendarDisplay.isDayBeforeToday {
+            dateLabel.textColor = UIColor(hex: "d0d0d0")
         }
     }
     

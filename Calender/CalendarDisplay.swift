@@ -61,4 +61,11 @@ struct CalendarDisplay {
     var monthAndDay: String {
         return "\(month):\(day)"
     }
+    
+    var isDayBeforeToday: Bool {
+        guard let day = dateComponents.day, let currentDay = Calendar.current.dateComponents(in: TimeZone.current, from: Date()).day else {
+            return false
+        }
+        return date < Date() && day < currentDay
+    }
 }
