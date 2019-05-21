@@ -11,11 +11,13 @@ import UIKit
 class CalendarViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var childVC: TimeSectionViewController!
     
     var selectedDate = Date() {
         didSet {
             title = "選擇 \(calendarDisplay.monthAndDay) 時段"
             collectionView.reloadData()
+            childVC.selectedDate = selectedDate
         }
     }
     
@@ -59,7 +61,11 @@ class CalendarViewController: UIViewController {
         return dates
     }
 
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let timeSectionVC = segue.destination as? TimeSectionViewController {
+            childVC = timeSectionVC
+        }
+    }
 }
 
 extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

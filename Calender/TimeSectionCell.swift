@@ -20,19 +20,19 @@ class TimeSectionCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 5
     }
     
-    func configure(tSection: TimeSection, isSelected: Bool, isAvailable: Bool) {
+    func configure(tSection: TimeSection) {
         
         timeLabel.text = tSection.rangeText
         availableSpotLabel.text = "\(tSection.availablePeople)/\(tSection.maxPeople)"
         
-        if !isAvailable {
+        if !tSection.isSelectable {
             containerView.backgroundColor = .white
             timeLabel.textColor = UIColor(hex: "d0d0d0")
             availableSpotLabel.textColor = UIColor(hex: "d0d0d0")
             return
         }
         
-        if isSelected {
+        if tSection.isSelected {
             containerView.backgroundColor = UIColor(hex: "3eb0ca")
             timeLabel.textColor = .white
             availableSpotLabel.textColor = .white
