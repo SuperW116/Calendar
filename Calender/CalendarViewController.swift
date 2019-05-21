@@ -19,16 +19,17 @@ class CalendarViewController: UIViewController {
         }
     }
     
+    private let numberOfWeeks = 4
     lazy var weeks: [[Date]] = {
         var dates = [[Date]]()
-        for i in 0 ..< 4 {
+        for i in 0 ..< numberOfWeeks {
             let date = Date().addingTimeInterval(Double(i) * 7 * 24 * 60 * 60)
             dates.append(generateOneWeek(by: date))
         }
         return dates
     }()
     
-    var calendarDisplay: CalendarDisplay {
+    private var calendarDisplay: CalendarDisplay {
         return CalendarDisplay(date: selectedDate)
     }
     
@@ -36,7 +37,7 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func generateOneWeek(by date: Date) -> [Date] {
+    private func generateOneWeek(by date: Date) -> [Date] {
         guard let pivot = Calendar.current.dateComponents(in: TimeZone.current, from: date).weekday else {
             return []
         }
@@ -72,7 +73,7 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalenderDateCell", for: indexPath) as! CalendarDateCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarDateCell.shortName, for: indexPath) as! CalendarDateCell
         let date = weeks[indexPath.section][indexPath.row]
         cell.configure(by: date, isSelected: date == selectedDate)
         return cell
