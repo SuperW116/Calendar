@@ -10,7 +10,6 @@ import UIKit
 
 class TimeSectionCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var timeLabel: UILabel!

@@ -18,6 +18,7 @@
 		D68FD07A2292A8F30078E4BE /* TimeSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD0792292A8F30078E4BE /* TimeSectionViewController.swift */; };
 		D68FD07C2293930B0078E4BE /* TimeSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD07B2293930A0078E4BE /* TimeSectionCell.swift */; };
 		D68FD07E229394070078E4BE /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD07D229394070078E4BE /* extension.swift */; };
+		D68FD0802293C86A0078E4BE /* TimeSectionButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD07F2293C86A0078E4BE /* TimeSectionButtonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D68FD0792292A8F30078E4BE /* TimeSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSectionViewController.swift; sourceTree = "<group>"; };
 		D68FD07B2293930A0078E4BE /* TimeSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSectionCell.swift; sourceTree = "<group>"; };
 		D68FD07D229394070078E4BE /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		D68FD07F2293C86A0078E4BE /* TimeSectionButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSectionButtonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				D68FD0792292A8F30078E4BE /* TimeSectionViewController.swift */,
 				D68FD07B2293930A0078E4BE /* TimeSectionCell.swift */,
 				D68FD07D229394070078E4BE /* extension.swift */,
+				D68FD07F2293C86A0078E4BE /* TimeSectionButtonCell.swift */,
 			);
 			path = Calender;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				D68FD07822928CA20078E4BE /* CalendarDisplay.swift in Sources */,
 				D68FD07E229394070078E4BE /* extension.swift in Sources */,
+				D68FD0802293C86A0078E4BE /* TimeSectionButtonCell.swift in Sources */,
 				D68FD07A2292A8F30078E4BE /* TimeSectionViewController.swift in Sources */,
 				D68FD07C2293930B0078E4BE /* TimeSectionCell.swift in Sources */,
 				D641B80D2292497200709DF9 /* CalendarDateCell.swift in Sources */,

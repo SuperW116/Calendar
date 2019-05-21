@@ -191,13 +191,34 @@
                                             <outlet property="timeLabel" destination="MUo-iC-MO2" id="Kgt-7P-unj"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FGo-z7-mZy">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeSectionButtonCell" id="FGo-z7-mZy" customClass="TimeSectionButtonCell" customModule="Calender" customModuleProvider="target">
                                         <rect key="frame" x="199" y="0.0" width="176" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="176" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xV7-BJ-ucX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="169" height="70"/>
+                                                    <color key="backgroundColor" red="0.24313725490196078" green="0.69019607843137254" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="確定">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="submit:" destination="xV3-uS-PgX" eventType="touchUpInside" id="UNb-Mn-Yc1"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="xV7-BJ-ucX" secondAttribute="bottom" id="6cO-DK-HcG"/>
+                                            <constraint firstItem="xV7-BJ-ucX" firstAttribute="top" secondItem="FGo-z7-mZy" secondAttribute="top" id="8uL-mH-i2e"/>
+                                            <constraint firstItem="xV7-BJ-ucX" firstAttribute="leading" secondItem="FGo-z7-mZy" secondAttribute="leading" id="LfM-pQ-Svj"/>
+                                            <constraint firstAttribute="trailing" secondItem="xV7-BJ-ucX" secondAttribute="trailing" id="jTk-IH-NiA"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="confirmButton" destination="xV7-BJ-ucX" id="GGU-mW-bi5"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
