@@ -83,6 +83,9 @@ extension TimeSectionViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.section < timeSectionsGroup.count else {
+            return
+        }
         let tSection = timeSectionsGroup[indexPath.section][indexPath.row]
         guard tSection.isSelectable else {
             return

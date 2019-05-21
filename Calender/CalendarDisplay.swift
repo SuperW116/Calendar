@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-
-
 struct CalendarDisplay {
     
     private let date: Date
