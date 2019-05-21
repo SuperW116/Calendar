@@ -21,5 +21,23 @@ class TimeSectionCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 5
     }
     
+    func configure(isSelected: Bool, isAvailable: Bool) {
+        guard isAvailable else {
+            containerView.backgroundColor = .white
+            timeLabel.textColor = UIColor(hex: "d0d0d0")
+            availableSpotLabel.textColor = UIColor(hex: "d0d0d0")
+            return
+        }
+        
+        if isSelected {
+            containerView.backgroundColor = UIColor(hex: "3eb0ca")
+            timeLabel.textColor = .white
+            availableSpotLabel.textColor = .white
+        } else {
+            containerView.backgroundColor = .white
+            timeLabel.textColor = UIColor(hex: "383838")
+            availableSpotLabel.textColor = UIColor(hex: "9d9d9d")
+        }
+    }
     
 }
