@@ -22,6 +22,12 @@ class PublicUtilityBookingViewController: UIViewController {
     var selectedDate: Date?
     var selectedTimeSections: [TimeSection]?
     
+    let dateForamter: DateFormatter = {
+        let formater = DateFormatter()
+        formater.dateFormat = "YYYY/MM/DD"
+        return formater
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -57,6 +63,7 @@ extension PublicUtilityBookingViewController: UITableViewDataSource, UITableView
                 cell.titleLabel.text = "人數"
             case 1:
                 if let date = selectedDate {
+                    cell.selectionLabel.text = dateForamter.string(from: date)
                     cell.configureAppearance(isCompleted: true)
                 } else {
                     cell.selectionLabel.text = "請選擇日期"
@@ -64,8 +71,9 @@ extension PublicUtilityBookingViewController: UITableViewDataSource, UITableView
                 }
                 cell.titleLabel.text = "日期"
             case 2:
-                if let tSection = selectedTimeSections {
+                if let tSection = selectedTimeSections, !tSection.isEmpty {
                     cell.configureAppearance(isCompleted: true)
+                    cell.selectionLabel.text = "\(tSection.first!.startTimeText)-\(tSection.last!.endTimeText)"
                 } else {
                     cell.selectionLabel.text = "請選擇時段"
                     cell.configureAppearance(isCompleted: false)
@@ -76,8 +84,6 @@ extension PublicUtilityBookingViewController: UITableViewDataSource, UITableView
             }
             return cell
         }
-        
-        
         
         return UITableViewCell()
     }

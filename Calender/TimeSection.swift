@@ -32,12 +32,29 @@ struct TimeSection {
     }
     
     var rangeText: String {
-        guard let sHour = sDateComponents.hour, let sMinute = sDateComponents.minute, let eHour = eDateComponents.hour, let eMinute = eDateComponents.minute else {
+//        guard let sHour = sDateComponents.hour, let sMinute = sDateComponents.minute, let eHour = eDateComponents.hour, let eMinute = eDateComponents.minute else {
+//            return ""
+//        }
+//        let sMinuteStr = sMinute > 10 ? String(sMinute) : "0\(sMinute)"
+//        let eMinuteStr = eMinute > 10 ? String(eMinute) : "0\(eMinute)"
+//        return "\(sHour):\(sMinuteStr)-\(eHour):\(eMinuteStr)"
+        return startTimeText + "-" + endTimeText
+    }
+    
+    var startTimeText: String {
+        guard let sHour = sDateComponents.hour, let sMinute = sDateComponents.minute else {
             return ""
         }
         let sMinuteStr = sMinute > 10 ? String(sMinute) : "0\(sMinute)"
+        return "\(sHour):\(sMinuteStr)"
+    }
+    
+    var endTimeText: String {
+        guard let eHour = eDateComponents.hour, let eMinute = eDateComponents.minute else {
+            return ""
+        }
         let eMinuteStr = eMinute > 10 ? String(eMinute) : "0\(eMinute)"
-        return "\(sHour):\(sMinuteStr)-\(eHour):\(eMinuteStr)"
+        return "\(eHour):\(eMinuteStr)"
     }
     
     var isSelectable: Bool {
