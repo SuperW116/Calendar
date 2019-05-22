@@ -12,6 +12,8 @@ class TimeSectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var submissionHandler: (([TimeSection]) -> Void)?
+    
     var selectedDate = Date() {
         didSet {
             let manager = TimeSectionDisplayManager()
@@ -32,7 +34,10 @@ class TimeSectionViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: UIButton) {
-        print("submit(_ sender: UIButton)")
+        guard !selectedTimeSections.isEmpty else {
+            return
+        }
+        submissionHandler?(selectedTimeSections)
     }
     
 }

@@ -61,23 +61,14 @@
                                                         <constraint firstAttribute="height" constant="5" id="ghN-Ko-B8J"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHC-EO-O6Z">
-                                                    <rect key="frame" x="175" y="0.0" width="200" height="49.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="cNm-wb-uaD"/>
-                                                    </constraints>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="8MU-0Y-Gyr" firstAttribute="centerY" secondItem="IQa-xi-Rcc" secondAttribute="centerY" id="00t-yS-kcA"/>
-                                                <constraint firstAttribute="bottom" secondItem="LHC-EO-O6Z" secondAttribute="bottom" id="DHP-7I-aYT"/>
                                                 <constraint firstItem="kr9-ZV-rG5" firstAttribute="top" secondItem="IQa-xi-Rcc" secondAttribute="top" constant="14" id="KkT-Tl-1Ll"/>
                                                 <constraint firstItem="kr9-ZV-rG5" firstAttribute="leading" secondItem="IQa-xi-Rcc" secondAttribute="leading" constant="20" id="LnW-ZP-wRS"/>
-                                                <constraint firstItem="LHC-EO-O6Z" firstAttribute="top" secondItem="IQa-xi-Rcc" secondAttribute="top" id="Nnk-UP-I3T"/>
                                                 <constraint firstAttribute="bottom" secondItem="kr9-ZV-rG5" secondAttribute="bottom" constant="14" id="TNm-Qg-UFE"/>
                                                 <constraint firstItem="HMm-DT-knD" firstAttribute="centerY" secondItem="IQa-xi-Rcc" secondAttribute="centerY" id="Tcl-rX-KqQ"/>
                                                 <constraint firstItem="8MU-0Y-Gyr" firstAttribute="leading" secondItem="HMm-DT-knD" secondAttribute="trailing" constant="10" id="et5-wB-kM7"/>
-                                                <constraint firstAttribute="trailing" secondItem="LHC-EO-O6Z" secondAttribute="trailing" id="mQh-UZ-Ktj"/>
                                                 <constraint firstAttribute="trailing" secondItem="8MU-0Y-Gyr" secondAttribute="trailing" constant="15" id="yQ6-Xb-MsC"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -111,11 +102,12 @@
                     <connections>
                         <outlet property="submitButton" destination="jOo-eu-uH5" id="ele-vZ-66g"/>
                         <outlet property="tableView" destination="ACZ-0E-yfp" id="Yod-9J-Ile"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="CalendarViewController" id="fbe-jn-MRd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xED-58-WDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="-608.54572713643188"/>
+            <point key="canvasLocation" x="234" y="134"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -217,24 +209,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1079.2" y="133.5832083958021"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5Q0-wq-qcy">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T4a-f9-2mj" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9y7-Ug-RiU">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jcJ-Hy-Z6V"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qbq-0Y-QMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="270" y="134"/>
         </scene>
         <!--Time Section View Controller-->
         <scene sceneID="SFe-sG-oJT">
@@ -368,7 +342,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uym-mE-b5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="765.60000000000002" y="-607.64617691154433"/>
+            <point key="canvasLocation" x="-554" y="134"/>
         </scene>
     </scenes>
 </document>

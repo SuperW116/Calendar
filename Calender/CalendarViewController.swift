@@ -11,17 +11,22 @@ import UIKit
 class CalendarViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var childVC: TimeSectionViewController!
     
+    var childVC: TimeSectionViewController!
+    var submissionHandler: (([TimeSection]) -> Void)?
     var selectedDate = Date() {
         didSet {
             title = "選擇 \(calendarDisplay.monthAndDay) 時段"
-            childVC.selectedDate = selectedDate
+            if let childVC = childVC {
+                childVC.selectedDate = selectedDate
+            }
             if isViewLoaded {
                 collectionView.reloadData()
             }
         }
     }
+    private var minimumTimeSections = 1
+    private var numberOfPeople = 1
     
     private var numberOfWeeks = 4
     lazy var weeks: [[Date]] = {
@@ -37,15 +42,24 @@ class CalendarViewController: UIViewController {
         return CalendarDisplay(date: selectedDate)
     }
     
-    func setVC(selectedDate: Date, minimumTimeSections: Int, numberOfPeople: Int, numberOfWeeks: Int = 4) {
+    func setVC(selectedDate: Date, minimumTimeSections: Int, numberOfPeople: Int, numberOfWeeks: Int = 4, submissionHandler: (([TimeSection]) -> Void)?) {
         self.selectedDate = selectedDate
-        childVC.minimumTimeSections = minimumTimeSections
-        childVC.numberOfPeople = numberOfPeople
+        self.minimumTimeSections = minimumTimeSections
+        self.numberOfPeople = numberOfPeople
         self.numberOfWeeks = numberOfWeeks
+        self.submissionHandler = submissionHandler
+    }
+    
+    private func setUpChildVC() {
+        childVC.selectedDate = selectedDate
+        childVC.numberOfPeople = numberOfPeople
+        childVC.minimumTimeSections = minimumTimeSections
+        childVC.submissionHandler = submissionHandler
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpChildVC()
     }
     
     private func generateOneWeek(by date: Date) -> [Date] {
