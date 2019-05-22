@@ -16,7 +16,7 @@ struct TimeSectionDisplayManager {
     
     init() {
         openingTimes = [0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0]
-        availablePeopleSections = [0,0,4,7,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,2,1,0,0]
+        availablePeopleSections = [0,0,4,7,0,0,0,0,0,0,0,4,0,0,-1,0,0,0,0,0,0,0,0,0,4,4,-1,-1,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,3,2,1,0,0]
         maxPeople = 8
     }
     
@@ -31,6 +31,9 @@ struct TimeSectionDisplayManager {
             } else if num == 1 {
                 prev.append(timeSectionsPerDay[index])
             }
+        }
+        if !prev.isEmpty {
+            timeSections.append(prev)
         }
         return timeSections
     }

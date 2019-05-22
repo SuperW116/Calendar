@@ -21,6 +21,9 @@ class TimeSectionViewController: UIViewController {
     }
     var timeSectionsGroup = [[TimeSection]]()
     
+    var selectedTimeSections = [TimeSection]()
+    var minimumTimeSections = 2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -77,7 +80,8 @@ extension TimeSectionViewController: UICollectionViewDataSource, UICollectionVie
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeSectionCell.shortName, for: indexPath) as! TimeSectionCell
             let tSection = timeSectionsGroup[indexPath.section][indexPath.row]
-            cell.configure(tSection: tSection)
+            
+            cell.configure(tSection: tSection, isSelected: selectedTimeSections.contains(tSection))
             return cell
         }
     }
@@ -86,11 +90,24 @@ extension TimeSectionViewController: UICollectionViewDataSource, UICollectionVie
         guard indexPath.section < timeSectionsGroup.count else {
             return
         }
-        let tSection = timeSectionsGroup[indexPath.section][indexPath.row]
-        guard tSection.isSelectable else {
+        
+        if indexPath.row + minimumTimeSections > timeSectionsGroup[indexPath.section].count {
             return
         }
-        timeSectionsGroup[indexPath.section][indexPath.row].isSelected = !tSection.isSelected
+        
+        var tSections = [TimeSection]()
+        for row in indexPath.row ..< indexPath.row + minimumTimeSections {
+            if !timeSectionsGroup[indexPath.section][row].isSelectable {
+                return
+            }
+            tSections.append(timeSectionsGroup[indexPath.section][row])
+        }
+//        let tSection = timeSectionsGroup[indexPath.section][indexPath.row]
+//        guard tSection.isSelectable else {
+//            return
+//        }
+
+        selectedTimeSections = tSections
         collectionView.reloadData()
     }
 }
