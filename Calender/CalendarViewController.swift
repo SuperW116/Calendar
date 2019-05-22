@@ -16,16 +16,18 @@ class CalendarViewController: UIViewController {
     var selectedDate = Date() {
         didSet {
             title = "選擇 \(calendarDisplay.monthAndDay) 時段"
-            collectionView.reloadData()
             childVC.selectedDate = selectedDate
+            if isViewLoaded {
+                collectionView.reloadData()
+            }
         }
     }
     
-    private let numberOfWeeks = 4
+    private var numberOfWeeks = 4
     lazy var weeks: [[Date]] = {
         var dates = [[Date]]()
         for i in 0 ..< numberOfWeeks {
-            let date = Date().addingTimeInterval(Double(i) * 7 * 24 * 60 * 60)
+            let date = Calendar.current.startOfDay(for: Date()).addingTimeInterval(Double(i) * 7 * 24 * 60 * 60)
             dates.append(generateOneWeek(by: date))
         }
         return dates
@@ -33,6 +35,13 @@ class CalendarViewController: UIViewController {
     
     private var calendarDisplay: CalendarDisplay {
         return CalendarDisplay(date: selectedDate)
+    }
+    
+    func setVC(selectedDate: Date, minimumTimeSections: Int, numberOfPeople: Int, numberOfWeeks: Int = 4) {
+        self.selectedDate = selectedDate
+        childVC.minimumTimeSections = minimumTimeSections
+        childVC.numberOfPeople = numberOfPeople
+        self.numberOfWeeks = numberOfWeeks
     }
     
     override func viewDidLoad() {

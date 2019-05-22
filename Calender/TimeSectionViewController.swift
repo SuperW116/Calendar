@@ -16,13 +16,16 @@ class TimeSectionViewController: UIViewController {
         didSet {
             let manager = TimeSectionDisplayManager()
             timeSectionsGroup = manager.timeSectionsGroup(by: selectedDate)
-            collectionView.reloadData()
+            if isViewLoaded {
+                collectionView.reloadData()
+            }
         }
     }
     var timeSectionsGroup = [[TimeSection]]()
     
     var selectedTimeSections = [TimeSection]()
-    var minimumTimeSections = 2
+    var minimumTimeSections = 1
+    var numberOfPeople = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,11 +105,6 @@ extension TimeSectionViewController: UICollectionViewDataSource, UICollectionVie
             }
             tSections.append(timeSectionsGroup[indexPath.section][row])
         }
-//        let tSection = timeSectionsGroup[indexPath.section][indexPath.row]
-//        guard tSection.isSelectable else {
-//            return
-//        }
-
         selectedTimeSections = tSections
         collectionView.reloadData()
     }
