@@ -108,6 +108,7 @@ class CalendarViewController: UIViewController {
             childVC = timeSectionVC
         }
     }
+    var currentPage = 0
 }
 
 extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -150,6 +151,18 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
         selectedDate = date
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let page = Int(scrollView.contentOffset.x / UIScreen.main.bounds.width)
+        if page != currentPage {
+            selectedDate = selectedDate.addingTimeInterval(7 * 24 * 60 * 60 * Double(page - currentPage))
+            while selectedDate < Calendar.current.startOfDay(for: Date()) {
+                selectedDate = selectedDate.addingTimeInterval(24 * 60 * 60)
+            }
+            currentPage = page
+            collectionView.reloadData()
+        }
+        
+    }
 }
 
 extension CalendarViewController: LocalbondDatePickerViewDelegate {

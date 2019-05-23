@@ -26,7 +26,7 @@ class PublicUtilityBookingViewController: UIViewController {
     var selectedTimeSections: [TimeSection]? {
         didSet {
             if let tSection = selectedTimeSections?.first {
-                dateToBeSubmitted = tSection.startDate
+                dateToBeSubmitted = Calendar.current.startOfDay(for: tSection.startDate)
             }
         }
     }
@@ -48,6 +48,7 @@ class PublicUtilityBookingViewController: UIViewController {
     }
     
     @objc func cleanUp() {
+        numberOfPeopleToBeBooked = 1
         dateToBeSubmitted = nil
         selectedTimeSections = nil
         tableView.reloadData()
@@ -63,7 +64,7 @@ class PublicUtilityBookingViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == CalendarViewController.shortName, let vc = segue.destination as? CalendarViewController {
-            vc.setVC(selectedDate: dateToBeSubmitted ?? Date(), minimumTimeSections: minimumTimeSections, numberOfPeople: numberOfPeopleToBeBooked) { [weak self] sections in
+            vc.setVC(selectedDate: dateToBeSubmitted ?? Calendar.current.startOfDay(for: Date()), minimumTimeSections: minimumTimeSections, numberOfPeople: numberOfPeopleToBeBooked) { [weak self] sections in
                 guard let this = self else {
                     return
                 }
