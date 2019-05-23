@@ -194,20 +194,39 @@
                                 </connections>
                             </collectionView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QoM-Bp-FHa">
-                                <rect key="frame" x="0.0" y="154" width="375" height="513"/>
+                                <rect key="frame" x="0.0" y="154" width="375" height="433"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="xV3-uS-PgX" kind="embed" id="n4Z-wK-Ie7"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRv-8g-HvL">
+                                <rect key="frame" x="15" y="602" width="345" height="50"/>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.69019607839999997" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KUB-Wf-ZPU"/>
+                                </constraints>
+                                <state key="normal" title="確定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submit:" destination="xV3-uS-PgX" eventType="touchUpInside" id="4IH-rV-uKF"/>
+                                    <action selector="submit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PpF-QD-wKP"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QoM-Bp-FHa" secondAttribute="trailing" id="Dab-Re-Mkh"/>
-                            <constraint firstItem="QoM-Bp-FHa" firstAttribute="top" secondItem="Sen-6u-2ww" secondAttribute="bottom" id="Mvy-1S-0uo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QoM-Bp-FHa" secondAttribute="bottom" id="YTy-WW-RwH"/>
+                            <constraint firstItem="NRv-8g-HvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="22A-IT-sgr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NRv-8g-HvL" secondAttribute="bottom" constant="15" id="8yG-Zh-YBL"/>
+                            <constraint firstItem="QoM-Bp-FHa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Phm-zy-iUM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NRv-8g-HvL" secondAttribute="trailing" constant="15" id="ROC-Rz-Y0s"/>
+                            <constraint firstItem="QoM-Bp-FHa" firstAttribute="top" secondItem="Sen-6u-2ww" secondAttribute="bottom" id="U7a-mk-PhK"/>
                             <constraint firstItem="Sen-6u-2ww" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="drJ-4O-Nc2"/>
                             <constraint firstItem="Sen-6u-2ww" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dtw-5y-div"/>
-                            <constraint firstItem="QoM-Bp-FHa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eek-ZO-uZw"/>
+                            <constraint firstItem="QoM-Bp-FHa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ot8-4B-0x3"/>
+                            <constraint firstItem="NRv-8g-HvL" firstAttribute="top" secondItem="QoM-Bp-FHa" secondAttribute="bottom" constant="15" id="tWk-Sx-oA9"/>
                             <constraint firstItem="Sen-6u-2ww" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wPT-H9-4S5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -226,11 +245,11 @@
             <objects>
                 <viewController id="xV3-uS-PgX" customClass="TimeSectionViewController" customModule="Calender" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l69-R6-JCs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="513"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="433"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-Ii-g3Z">
-                                <rect key="frame" x="0.0" y="20" width="375" height="493"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="433"/>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sDz-uV-JZh">
                                     <size key="itemSize" width="176" height="70"/>
@@ -320,7 +339,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lTU-2Z-JjU" firstAttribute="bottom" secondItem="fgM-Ii-g3Z" secondAttribute="bottom" id="6uU-DK-5E4"/>
                             <constraint firstItem="fgM-Ii-g3Z" firstAttribute="top" secondItem="lTU-2Z-JjU" secondAttribute="top" id="Frb-LP-YRJ"/>

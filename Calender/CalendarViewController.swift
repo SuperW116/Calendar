@@ -75,9 +75,6 @@ class CalendarViewController: UIViewController {
     
     @objc func selectDate() {
         view.addSubview(datePicker)
-        
-        
-        
         datePicker.frame = view.frame
     }
     
@@ -109,6 +106,11 @@ class CalendarViewController: UIViewController {
         }
     }
     var currentPage = 0
+    
+    
+    @IBAction func submit(_ sender: Any) {
+        childVC?.submit()
+    }
 }
 
 extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -175,6 +177,7 @@ extension CalendarViewController: LocalbondDatePickerViewDelegate {
             }
         }
         let screenWidth = UIScreen.main.bounds.width
+        currentPage = section
         collectionView.setContentOffset(CGPoint(x: screenWidth * CGFloat(section), y: 0), animated: true)
         datePicker.removeFromSuperview()
     }
