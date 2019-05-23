@@ -88,8 +88,8 @@ extension TimeSectionViewController: UICollectionViewDataSource, UICollectionVie
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeSectionCell.shortName, for: indexPath) as! TimeSectionCell
             let tSection = timeSectionsGroup[indexPath.section][indexPath.row]
-            
-            cell.configure(tSection: tSection, isSelected: selectedTimeSections.contains(tSection))
+            let hasEnoughSlots = numberOfPeopleToBeBooked <= tSection.availablePeople || !tSection.hasLimitNumberOfPeople
+            cell.configure(tSection: tSection, hasEnoughSlots: hasEnoughSlots, isSelected: selectedTimeSections.contains(tSection))
             return cell
         }
     }
@@ -106,7 +106,8 @@ extension TimeSectionViewController: UICollectionViewDataSource, UICollectionVie
         var tSections = [TimeSection]()
         for row in indexPath.row ..< indexPath.row + minimumTimeSections {
             let tSection = timeSectionsGroup[indexPath.section][row]
-            if !tSection.isSelectable && numberOfPeopleToBeBooked > tSection.availablePeople {
+            let hasEnoughSlots = numberOfPeopleToBeBooked <= tSection.availablePeople || !tSection.hasLimitNumberOfPeople
+            if !tSection.isSelectable || !hasEnoughSlots {
                 return
             }
             tSections.append(tSection)
