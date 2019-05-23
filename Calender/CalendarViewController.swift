@@ -56,6 +56,16 @@ class CalendarViewController: UIViewController {
         childVC.minimumTimeSections = minimumTimeSections
         childVC.submissionHandler = submissionHandler
     }
+    private lazy var datePicker: LocalbondDatePickerView = {
+        let view = LocalbondDatePickerView()
+        view.delegate = self
+        view.datePicker.calendar = Calendar.current
+        view.datePicker.minimumDate = Date()
+        view.datePicker.maximumDate = weeks.last?.last
+        view.datePicker.locale = Locale(identifier: "zh-Hant")
+        view.datePicker.setDate(selectedDate, animated: false)
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +74,11 @@ class CalendarViewController: UIViewController {
     }
     
     @objc func selectDate() {
+        view.addSubview(datePicker)
         
         
         
+        datePicker.frame = view.frame
     }
     
     private func generateOneWeek(by date: Date) -> [Date] {
@@ -130,6 +142,7 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(collectionView.contentOffset)
         let date = weeks[indexPath.section][indexPath.row]
         guard CalendarDisplay(date: date).isDayBeforeToday == false else {
             return
@@ -137,4 +150,19 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
         selectedDate = date
     }
     
+}
+
+extension CalendarViewController: LocalbondDatePickerViewDelegate {
+    func didConfirmDate(_ date: Date) {
+        selectedDate = Calendar.current.startOfDay(for: date)
+        var section = 0
+        for (i, week) in weeks.enumerated() {
+            if let _ = week.firstIndex(of: selectedDate) {
+                section = i
+            }
+        }
+        let screenWidth = UIScreen.main.bounds.width
+        collectionView.setContentOffset(CGPoint(x: screenWidth * CGFloat(section), y: 0), animated: true)
+        datePicker.removeFromSuperview()
+    }
 }

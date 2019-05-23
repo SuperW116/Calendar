@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ArrivedTimePickerView: UIView {
+class LocalbondDatePickerView: UIView {
 
     // MARK: - Properties
     var view: UIView!
-    weak var delegate: ArrivedTimePickerViewDelegate?
-    @IBOutlet weak var datePickerView: UIPickerView!
-    @IBOutlet weak var timePickerView: UIPickerView!
+    weak var delegate: LocalbondDatePickerViewDelegate?
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -44,7 +42,7 @@ class ArrivedTimePickerView: UIView {
     
     func loadViewFromNib() -> UIView {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: ArrivedTimePickerView.shortName, bundle: bundle)
+        let nib = UINib(nibName: LocalbondDatePickerView.shortName, bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
@@ -56,10 +54,10 @@ class ArrivedTimePickerView: UIView {
     }
     
     @IBAction func setArrivedTimeButtonPressed(_ asender: Any) {
-        delegate?.didConfirmArrivalTime()
+        delegate?.didConfirmDate(datePicker.date)
     }
 }
 
-protocol ArrivedTimePickerViewDelegate: class {
-    func didConfirmArrivalTime()
+protocol LocalbondDatePickerViewDelegate: class {
+    func didConfirmDate(_ date: Date)
 }

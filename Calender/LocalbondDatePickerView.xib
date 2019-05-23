@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArrivedTimePickerView" customModule="Com" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocalbondDatePickerView" customModule="Calender" customModuleProvider="target">
             <connections>
-                <outlet property="datePickerView" destination="WiU-8e-MBy" id="ADJ-RU-oKA"/>
-                <outlet property="timePickerView" destination="Bhc-HU-P4J" id="GV0-CV-GQ9"/>
+                <outlet property="datePicker" destination="JIh-QI-RaX" id="f3g-26-Tcv"/>
                 <outlet property="titleLabel" destination="cWE-gH-8Sz" id="gG0-1W-MLc"/>
             </connections>
         </placeholder>
@@ -27,11 +25,11 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="153-e3-fTa">
                             <rect key="frame" x="16" y="258" width="343" height="44"/>
-                            <color key="backgroundColor" red="0.1960784314" green="0.80392156859999997" blue="0.66666666669999997" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.24313725489999999" green="0.69019607839999997" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="xF4-IK-RCK"/>
                             </constraints>
-                            <state key="normal" title="設定到貨時間">
+                            <state key="normal" title="確定">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
@@ -43,37 +41,35 @@
                                 <action selector="setArrivedTimeButtonPressed:" destination="-1" eventType="touchUpInside" id="WfL-Or-OTt"/>
                             </connections>
                         </button>
-                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WiU-8e-MBy">
-                            <rect key="frame" x="0.0" y="42" width="187.5" height="216"/>
-                        </pickerView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天可送達時段" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWE-gH-8Sz">
-                            <rect key="frame" x="16" y="21.5" width="343" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.13725490196078433" green="0.25098039215686274" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇想要預約的日期" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWE-gH-8Sz">
+                            <rect key="frame" x="16" y="21.5" width="343" height="36.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhc-HU-P4J">
-                            <rect key="frame" x="188" y="42" width="187" height="216"/>
-                        </pickerView>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JIh-QI-RaX">
+                            <rect key="frame" x="0.0" y="58" width="375" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="QtC-p2-XzS"/>
+                            </constraints>
+                            <date key="date" timeIntervalSinceReferenceDate="580286448.28070104">
+                                <!--2019-05-23 06:40:48 +0000-->
+                            </date>
+                        </datePicker>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="153-e3-fTa" firstAttribute="top" secondItem="JIh-QI-RaX" secondAttribute="bottom" id="4RH-uf-SRJ"/>
                         <constraint firstItem="cWE-gH-8Sz" firstAttribute="leading" secondItem="kBb-ZZ-Oyh" secondAttribute="leading" constant="16" id="52b-Pm-3cc"/>
                         <constraint firstItem="153-e3-fTa" firstAttribute="leading" secondItem="kBb-ZZ-Oyh" secondAttribute="leading" constant="16" id="AS1-XB-Ccv"/>
-                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="height" secondItem="WiU-8e-MBy" secondAttribute="height" id="D9o-Ao-xYI"/>
-                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="bottom" secondItem="WiU-8e-MBy" secondAttribute="bottom" id="MMf-n9-ult"/>
-                        <constraint firstAttribute="trailing" secondItem="Bhc-HU-P4J" secondAttribute="trailing" id="S8R-1r-of3"/>
-                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="width" secondItem="WiU-8e-MBy" secondAttribute="width" id="T09-ub-uT5"/>
-                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="leading" secondItem="WiU-8e-MBy" secondAttribute="trailing" id="Ugs-xX-nn0"/>
-                        <constraint firstItem="cWE-gH-8Sz" firstAttribute="bottom" secondItem="WiU-8e-MBy" secondAttribute="top" id="Upg-9q-M6t"/>
-                        <constraint firstItem="WiU-8e-MBy" firstAttribute="bottom" secondItem="153-e3-fTa" secondAttribute="top" id="dPe-wy-xbu"/>
+                        <constraint firstAttribute="trailing" secondItem="JIh-QI-RaX" secondAttribute="trailing" id="UeA-xN-Ngg"/>
+                        <constraint firstItem="JIh-QI-RaX" firstAttribute="leading" secondItem="kBb-ZZ-Oyh" secondAttribute="leading" id="VLd-yG-ZN1"/>
                         <constraint firstItem="cWE-gH-8Sz" firstAttribute="top" secondItem="kBb-ZZ-Oyh" secondAttribute="top" constant="21.5" id="fIO-De-X1G"/>
-                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="top" secondItem="WiU-8e-MBy" secondAttribute="top" id="fh5-xD-hyG"/>
-                        <constraint firstItem="WiU-8e-MBy" firstAttribute="leading" secondItem="kBb-ZZ-Oyh" secondAttribute="leading" id="jZs-MD-9se"/>
                         <constraint firstAttribute="trailing" secondItem="cWE-gH-8Sz" secondAttribute="trailing" constant="16" id="o5e-lv-GwJ"/>
                         <constraint firstAttribute="bottom" secondItem="153-e3-fTa" secondAttribute="bottom" constant="9" id="pKe-a5-OGa"/>
                         <constraint firstAttribute="trailing" secondItem="153-e3-fTa" secondAttribute="trailing" constant="16" id="sX6-Ym-aFy"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="311" id="vFe-F9-I2N"/>
+                        <constraint firstItem="JIh-QI-RaX" firstAttribute="top" secondItem="cWE-gH-8Sz" secondAttribute="bottom" id="weW-eF-6HT"/>
                     </constraints>
                 </view>
                 <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94d-Ld-fs1">
