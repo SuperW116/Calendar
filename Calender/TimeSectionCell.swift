@@ -26,7 +26,7 @@ class TimeSectionCell: UICollectionViewCell {
         availableSpotLabel.text = "\(tSection.availablePeople)/\(tSection.maxPeople)"
         availableSpotLabel.isHidden = tSection.availablePeople == -1
         
-        if !tSection.isSelectable || !hasEnoughSlots {
+        if tSection.isExpired || !hasEnoughSlots {
             containerView.backgroundColor = .white
             timeLabel.textColor = UIColor(hex: "d0d0d0")
             availableSpotLabel.textColor = UIColor(hex: "d0d0d0")

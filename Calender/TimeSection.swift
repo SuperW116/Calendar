@@ -48,8 +48,8 @@ struct TimeSection {
         return "\(eHour):\(eMinuteStr)"
     }
     
-    var isSelectable: Bool {
-        return Date() < endDate
+    var isExpired: Bool {
+        return Date() > endDate
     }
     
     var hasLimitNumberOfPeople: Bool {

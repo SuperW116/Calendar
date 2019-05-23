@@ -107,7 +107,7 @@ extension TimeSectionViewController: UICollectionViewDataSource, UICollectionVie
         for row in indexPath.row ..< indexPath.row + minimumTimeSections {
             let tSection = timeSectionsGroup[indexPath.section][row]
             let hasEnoughSlots = numberOfPeopleToBeBooked <= tSection.availablePeople || !tSection.hasLimitNumberOfPeople
-            if !tSection.isSelectable || !hasEnoughSlots {
+            if tSection.isExpired || !hasEnoughSlots {
                 return
             }
             tSections.append(tSection)

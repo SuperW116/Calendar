@@ -60,6 +60,13 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpChildVC()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "日期", style: UIBarButtonItem.Style.plain, target: self, action: #selector(selectDate))
+    }
+    
+    @objc func selectDate() {
+        
+        
+        
     }
     
     private func generateOneWeek(by date: Date) -> [Date] {
