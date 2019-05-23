@@ -18,13 +18,13 @@ struct TimeSection {
     let sDateComponents: DateComponents
     let eDateComponents: DateComponents
     
-    let numberOfPeopleToBeBooked: Int
+//    let numberOfPeopleToBeBooked: Int
     
-    init(startDate: Date, availablePeople: Int, maxPeople: Int, numberOfPeopleToBeBooked: Int = 1) {
+    init(startDate: Date, availablePeople: Int, maxPeople: Int) {
         self.startDate = startDate
         self.availablePeople = availablePeople
         self.maxPeople = maxPeople
-        self.numberOfPeopleToBeBooked = numberOfPeopleToBeBooked
+//        self.numberOfPeopleToBeBooked = numberOfPeopleToBeBooked
         
         endDate = startDate.addingTimeInterval(30 * 60)
         sDateComponents = Calendar.current.dateComponents(in: TimeZone.current, from: startDate)
@@ -58,7 +58,7 @@ struct TimeSection {
     }
     
     var isSelectable: Bool {
-        return (availablePeople >= numberOfPeopleToBeBooked || !hasLimitToNumberOfPeople) && Date() < endDate
+        return !hasLimitToNumberOfPeople && Date() < endDate
     }
     
     var hasLimitToNumberOfPeople: Bool {

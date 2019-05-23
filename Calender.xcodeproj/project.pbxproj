@@ -23,6 +23,8 @@
 		D68FD0842293EFD10078E4BE /* TimeSectionDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD0832293EFD10078E4BE /* TimeSectionDisplayManager.swift */; };
 		D68FD086229526870078E4BE /* PublicUtilityBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD085229526870078E4BE /* PublicUtilityBookingViewController.swift */; };
 		D68FD0882295299A0078E4BE /* PublicUtilityBookingOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD0872295299A0078E4BE /* PublicUtilityBookingOptionCell.swift */; };
+		D68FD27A22954D5D0078E4BE /* ArrivedTimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68FD27822954D5D0078E4BE /* ArrivedTimePickerView.xib */; };
+		D68FD27B22954D5D0078E4BE /* ArrivedTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD27922954D5D0078E4BE /* ArrivedTimePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		D68FD0832293EFD10078E4BE /* TimeSectionDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSectionDisplayManager.swift; sourceTree = "<group>"; };
 		D68FD085229526870078E4BE /* PublicUtilityBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicUtilityBookingViewController.swift; sourceTree = "<group>"; };
 		D68FD0872295299A0078E4BE /* PublicUtilityBookingOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicUtilityBookingOptionCell.swift; sourceTree = "<group>"; };
+		D68FD27822954D5D0078E4BE /* ArrivedTimePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrivedTimePickerView.xib; sourceTree = "<group>"; };
+		D68FD27922954D5D0078E4BE /* ArrivedTimePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivedTimePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				D68FD0832293EFD10078E4BE /* TimeSectionDisplayManager.swift */,
 				D68FD085229526870078E4BE /* PublicUtilityBookingViewController.swift */,
 				D68FD0872295299A0078E4BE /* PublicUtilityBookingOptionCell.swift */,
+				D68FD27922954D5D0078E4BE /* ArrivedTimePickerView.swift */,
+				D68FD27822954D5D0078E4BE /* ArrivedTimePickerView.xib */,
 			);
 			path = Calender;
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 				D641B7F722923FCC00709DF9 /* LaunchScreen.storyboard in Resources */,
 				D641B7F422923FCC00709DF9 /* Assets.xcassets in Resources */,
 				D641B7F222923FCA00709DF9 /* Main.storyboard in Resources */,
+				D68FD27A22954D5D0078E4BE /* ArrivedTimePickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68FD27B22954D5D0078E4BE /* ArrivedTimePickerView.swift in Sources */,
 				D68FD07822928CA20078E4BE /* CalendarDisplay.swift in Sources */,
 				D68FD07E229394070078E4BE /* extension.swift in Sources */,
 				D68FD0802293C86A0078E4BE /* TimeSectionButtonCell.swift in Sources */,

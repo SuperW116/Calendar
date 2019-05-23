@@ -85,11 +85,21 @@
                                     <outlet property="delegate" destination="Tee-2Z-9kJ" id="Vlx-pb-SlU"/>
                                 </connections>
                             </tableView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NjZ-mZ-xWI">
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="e6o-mL-kyK"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="NjZ-mZ-xWI" firstAttribute="leading" secondItem="kyQ-xp-IH2" secondAttribute="leading" id="7Nt-KG-SHG"/>
+                            <constraint firstItem="NjZ-mZ-xWI" firstAttribute="trailing" secondItem="kyQ-xp-IH2" secondAttribute="trailing" id="8MZ-np-TJj"/>
                             <constraint firstItem="kyQ-xp-IH2" firstAttribute="trailing" secondItem="jOo-eu-uH5" secondAttribute="trailing" constant="15" id="9ec-DJ-psU"/>
                             <constraint firstItem="jOo-eu-uH5" firstAttribute="top" secondItem="ACZ-0E-yfp" secondAttribute="bottom" constant="15" id="SOj-u3-6Ya"/>
+                            <constraint firstItem="kyQ-xp-IH2" firstAttribute="bottom" secondItem="NjZ-mZ-xWI" secondAttribute="bottom" id="Xvo-Ql-ADp"/>
                             <constraint firstItem="kyQ-xp-IH2" firstAttribute="trailing" secondItem="ACZ-0E-yfp" secondAttribute="trailing" id="YvU-uT-hmB"/>
                             <constraint firstItem="kyQ-xp-IH2" firstAttribute="bottom" secondItem="jOo-eu-uH5" secondAttribute="bottom" constant="15" id="bti-bs-n8D"/>
                             <constraint firstItem="ACZ-0E-yfp" firstAttribute="top" secondItem="kyQ-xp-IH2" secondAttribute="top" id="lac-Gy-p7F"/>
@@ -100,6 +110,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8A0-Mw-ji2"/>
                     <connections>
+                        <outlet property="numOfPeoplePicker" destination="NjZ-mZ-xWI" id="6OV-Pv-EuH"/>
                         <outlet property="submitButton" destination="jOo-eu-uH5" id="ele-vZ-66g"/>
                         <outlet property="tableView" destination="ACZ-0E-yfp" id="Yod-9J-Ile"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="CalendarViewController" id="fbe-jn-MRd"/>

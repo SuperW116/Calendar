@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArrivedTimePickerView" customModule="Com" customModuleProvider="target">
+            <connections>
+                <outlet property="datePickerView" destination="WiU-8e-MBy" id="ADJ-RU-oKA"/>
+                <outlet property="timePickerView" destination="Bhc-HU-P4J" id="GV0-CV-GQ9"/>
+                <outlet property="titleLabel" destination="cWE-gH-8Sz" id="gG0-1W-MLc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="6of-7y-vX0">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBb-ZZ-Oyh">
+                    <rect key="frame" x="0.0" y="356" width="375" height="311"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="153-e3-fTa">
+                            <rect key="frame" x="16" y="258" width="343" height="44"/>
+                            <color key="backgroundColor" red="0.1960784314" green="0.80392156859999997" blue="0.66666666669999997" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="xF4-IK-RCK"/>
+                            </constraints>
+                            <state key="normal" title="設定到貨時間">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="setArrivedTimeButtonPressed:" destination="-1" eventType="touchUpInside" id="WfL-Or-OTt"/>
+                            </connections>
+                        </button>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WiU-8e-MBy">
+                            <rect key="frame" x="0.0" y="42" width="187.5" height="216"/>
+                        </pickerView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天可送達時段" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWE-gH-8Sz">
+                            <rect key="frame" x="16" y="21.5" width="343" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.13725490196078433" green="0.25098039215686274" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhc-HU-P4J">
+                            <rect key="frame" x="188" y="42" width="187" height="216"/>
+                        </pickerView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="cWE-gH-8Sz" firstAttribute="leading" secondItem="kBb-ZZ-Oyh" secondAttribute="leading" constant="16" id="52b-Pm-3cc"/>
+                        <constraint firstItem="153-e3-fTa" firstAttribute="leading" secondItem="kBb-ZZ-Oyh" secondAttribute="leading" constant="16" id="AS1-XB-Ccv"/>
+                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="height" secondItem="WiU-8e-MBy" secondAttribute="height" id="D9o-Ao-xYI"/>
+                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="bottom" secondItem="WiU-8e-MBy" secondAttribute="bottom" id="MMf-n9-ult"/>
+                        <constraint firstAttribute="trailing" secondItem="Bhc-HU-P4J" secondAttribute="trailing" id="S8R-1r-of3"/>
+                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="width" secondItem="WiU-8e-MBy" secondAttribute="width" id="T09-ub-uT5"/>
+                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="leading" secondItem="WiU-8e-MBy" secondAttribute="trailing" id="Ugs-xX-nn0"/>
+                        <constraint firstItem="cWE-gH-8Sz" firstAttribute="bottom" secondItem="WiU-8e-MBy" secondAttribute="top" id="Upg-9q-M6t"/>
+                        <constraint firstItem="WiU-8e-MBy" firstAttribute="bottom" secondItem="153-e3-fTa" secondAttribute="top" id="dPe-wy-xbu"/>
+                        <constraint firstItem="cWE-gH-8Sz" firstAttribute="top" secondItem="kBb-ZZ-Oyh" secondAttribute="top" constant="21.5" id="fIO-De-X1G"/>
+                        <constraint firstItem="Bhc-HU-P4J" firstAttribute="top" secondItem="WiU-8e-MBy" secondAttribute="top" id="fh5-xD-hyG"/>
+                        <constraint firstItem="WiU-8e-MBy" firstAttribute="leading" secondItem="kBb-ZZ-Oyh" secondAttribute="leading" id="jZs-MD-9se"/>
+                        <constraint firstAttribute="trailing" secondItem="cWE-gH-8Sz" secondAttribute="trailing" constant="16" id="o5e-lv-GwJ"/>
+                        <constraint firstAttribute="bottom" secondItem="153-e3-fTa" secondAttribute="bottom" constant="9" id="pKe-a5-OGa"/>
+                        <constraint firstAttribute="trailing" secondItem="153-e3-fTa" secondAttribute="trailing" constant="16" id="sX6-Ym-aFy"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="311" id="vFe-F9-I2N"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94d-Ld-fs1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="356"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="cancelButtonPressed:" destination="-1" eventType="touchUpInside" id="GWE-Vt-GNc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="kBb-ZZ-Oyh" secondAttribute="trailing" id="6lE-Ul-4d8"/>
+                <constraint firstItem="94d-Ld-fs1" firstAttribute="bottom" secondItem="kBb-ZZ-Oyh" secondAttribute="top" id="R1p-24-7C1"/>
+                <constraint firstItem="Qu9-Po-ZPO" firstAttribute="trailing" secondItem="94d-Ld-fs1" secondAttribute="trailing" id="WmW-BQ-k7n"/>
+                <constraint firstItem="Qu9-Po-ZPO" firstAttribute="top" secondItem="94d-Ld-fs1" secondAttribute="top" constant="20" id="aL2-JV-pye"/>
+                <constraint firstItem="kBb-ZZ-Oyh" firstAttribute="width" secondItem="6of-7y-vX0" secondAttribute="width" id="fKt-DO-Bu4"/>
+                <constraint firstItem="kBb-ZZ-Oyh" firstAttribute="bottom" secondItem="Qu9-Po-ZPO" secondAttribute="bottom" id="pwT-Q2-NLT"/>
+                <constraint firstItem="kBb-ZZ-Oyh" firstAttribute="leading" secondItem="6of-7y-vX0" secondAttribute="leading" id="r4Y-bh-zBt"/>
+                <constraint firstItem="94d-Ld-fs1" firstAttribute="leading" secondItem="Qu9-Po-ZPO" secondAttribute="leading" id="tm3-dC-Xsd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Qu9-Po-ZPO"/>
+            <point key="canvasLocation" x="35.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

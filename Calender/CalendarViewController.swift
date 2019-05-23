@@ -52,7 +52,7 @@ class CalendarViewController: UIViewController {
     
     private func setUpChildVC() {
         childVC.selectedDate = selectedDate
-        childVC.numberOfPeople = numberOfPeople
+        childVC.numberOfPeopleToBeBooked = numberOfPeople
         childVC.minimumTimeSections = minimumTimeSections
         childVC.submissionHandler = submissionHandler
     }

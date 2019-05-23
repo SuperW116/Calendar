@@ -27,7 +27,7 @@ class TimeSectionViewController: UIViewController {
     
     var selectedTimeSections = [TimeSection]()
     var minimumTimeSections = 1
-    var numberOfPeople = 1
+    var numberOfPeopleToBeBooked = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,10 +105,11 @@ extension TimeSectionViewController: UICollectionViewDataSource, UICollectionVie
         
         var tSections = [TimeSection]()
         for row in indexPath.row ..< indexPath.row + minimumTimeSections {
-            if !timeSectionsGroup[indexPath.section][row].isSelectable {
+            let tSection = timeSectionsGroup[indexPath.section][row]
+            if !tSection.isSelectable && numberOfPeopleToBeBooked > tSection.availablePeople {
                 return
             }
-            tSections.append(timeSectionsGroup[indexPath.section][row])
+            tSections.append(tSection)
         }
         selectedTimeSections = tSections
         collectionView.reloadData()

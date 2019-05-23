@@ -18,8 +18,11 @@ class PublicUtilityBookingViewController: UIViewController {
         }
     }
     
-    var numberOfPeople = 1
-    var dateToBeSubmitted: Date?
+    @IBOutlet weak var numOfPeoplePicker: UIPickerView!
+    
+    fileprivate var numberOfPeopleToBeBooked = 1
+    fileprivate var dateToBeSubmitted: Date?
+    fileprivate var minimumTimeSections = 2
     var selectedTimeSections: [TimeSection]? {
         didSet {
             if let tSection = selectedTimeSections?.first {
@@ -34,9 +37,14 @@ class PublicUtilityBookingViewController: UIViewController {
         return formater
     }()
     
+    var sample = Array(1...5)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "清除", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cleanUp))
+        numOfPeoplePicker.delegate = self
+        numOfPeoplePicker.dataSource = self
+        numOfPeoplePicker.isHidden = true
     }
     
     @objc func cleanUp() {
@@ -49,9 +57,13 @@ class PublicUtilityBookingViewController: UIViewController {
         print("submit")
     }
     
+    fileprivate func showNumberOfPeoplePicker() {
+        numOfPeoplePicker.isHidden = false
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == CalendarViewController.shortName, let vc = segue.destination as? CalendarViewController {
-            vc.setVC(selectedDate: Date(), minimumTimeSections: 2, numberOfPeople: numberOfPeople) { [weak self] sections in
+            vc.setVC(selectedDate: Date(), minimumTimeSections: minimumTimeSections, numberOfPeople: numberOfPeopleToBeBooked) { [weak self] sections in
                 guard let this = self else {
                     return
                 }
@@ -85,7 +97,7 @@ extension PublicUtilityBookingViewController: UITableViewDataSource, UITableView
             switch indexPath.row {
             case 0:
                 cell.configureAppearance(isCompleted: true)
-                cell.selectionLabel.text = "\(numberOfPeople)"
+                cell.selectionLabel.text = "\(numberOfPeopleToBeBooked)"
                 cell.titleLabel.text = "人數"
             case 1:
                 if let date = dateToBeSubmitted {
@@ -117,7 +129,7 @@ extension PublicUtilityBookingViewController: UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                
+                showNumberOfPeoplePicker()
             } else if indexPath.row == 1 {
                 performSegue(withIdentifier: CalendarViewController.shortName, sender: self)
             } else if indexPath.row == 2 {
@@ -126,4 +138,29 @@ extension PublicUtilityBookingViewController: UITableViewDataSource, UITableView
         }
     }
     
+}
+
+extension PublicUtilityBookingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sample.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(sample[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 40
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        numberOfPeopleToBeBooked = sample[row]
+        numOfPeoplePicker.isHidden = true
+        tableView.reloadData()
+    }
 }
