@@ -11,6 +11,9 @@ import UIKit
 class PointCalculationCell: UITableViewCell {
     
     
+    @IBOutlet weak var pointsSettlementLabel: UILabel!
+    @IBOutlet weak var pointsUsedLabel: UILabel!
+    @IBOutlet weak var remainingPointsLabel: UILabel!
     
     
 }
