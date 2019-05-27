@@ -157,8 +157,8 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
         let page = Int(scrollView.contentOffset.x / UIScreen.main.bounds.width)
         if page != currentPage {
             selectedDate = selectedDate.addingTimeInterval(7 * 24 * 60 * 60 * Double(page - currentPage))
-            while selectedDate < Calendar.current.startOfDay(for: Date()) {
-                selectedDate = selectedDate.addingTimeInterval(24 * 60 * 60)
+            if selectedDate < Calendar.current.startOfDay(for: Date()) {
+                selectedDate = Calendar.current.startOfDay(for: Date())
             }
             currentPage = page
             collectionView.reloadData()

@@ -25,6 +25,7 @@
 		D68FD0882295299A0078E4BE /* PublicUtilityBookingOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD0872295299A0078E4BE /* PublicUtilityBookingOptionCell.swift */; };
 		D68FD27A22954D5D0078E4BE /* LocalbondDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68FD27822954D5D0078E4BE /* LocalbondDatePickerView.xib */; };
 		D68FD27B22954D5D0078E4BE /* LocalbondDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD27922954D5D0078E4BE /* LocalbondDatePickerView.swift */; };
+		D68FD27D229BB42F0078E4BE /* PointCalculationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FD27C229BB42F0078E4BE /* PointCalculationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		D68FD0872295299A0078E4BE /* PublicUtilityBookingOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicUtilityBookingOptionCell.swift; sourceTree = "<group>"; };
 		D68FD27822954D5D0078E4BE /* LocalbondDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalbondDatePickerView.xib; sourceTree = "<group>"; };
 		D68FD27922954D5D0078E4BE /* LocalbondDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalbondDatePickerView.swift; sourceTree = "<group>"; };
+		D68FD27C229BB42F0078E4BE /* PointCalculationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCalculationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				D68FD0872295299A0078E4BE /* PublicUtilityBookingOptionCell.swift */,
 				D68FD27922954D5D0078E4BE /* LocalbondDatePickerView.swift */,
 				D68FD27822954D5D0078E4BE /* LocalbondDatePickerView.xib */,
+				D68FD27C229BB42F0078E4BE /* PointCalculationCell.swift */,
 			);
 			path = Calender;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				D68FD07822928CA20078E4BE /* CalendarDisplay.swift in Sources */,
 				D68FD07E229394070078E4BE /* extension.swift in Sources */,
 				D68FD0802293C86A0078E4BE /* TimeSectionButtonCell.swift in Sources */,
+				D68FD27D229BB42F0078E4BE /* PointCalculationCell.swift in Sources */,
 				D68FD07A2292A8F30078E4BE /* TimeSectionViewController.swift in Sources */,
 				D68FD086229526870078E4BE /* PublicUtilityBookingViewController.swift in Sources */,
 				D68FD07C2293930B0078E4BE /* TimeSectionCell.swift in Sources */,

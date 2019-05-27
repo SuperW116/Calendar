@@ -45,6 +45,9 @@ class PublicUtilityBookingViewController: UIViewController {
         numOfPeoplePicker.delegate = self
         numOfPeoplePicker.dataSource = self
         numOfPeoplePicker.isHidden = true
+        
+        tableView.estimatedRowHeight = 65
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     @objc func cleanUp() {
@@ -79,15 +82,19 @@ class PublicUtilityBookingViewController: UIViewController {
 
 extension PublicUtilityBookingViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return section == 0 ? 3 : 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 65
         } else {
-            return 0
+            return UITableView.automaticDimension
         }
     }
     
@@ -122,9 +129,10 @@ extension PublicUtilityBookingViewController: UITableViewDataSource, UITableView
                 break
             }
             return cell
+        } else {
+             let cell = tableView.dequeueReusableCell(withIdentifier: PointCalculationCell.shortName, for: indexPath) as! PointCalculationCell
+            return cell
         }
-        
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
