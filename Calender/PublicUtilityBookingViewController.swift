@@ -65,6 +65,7 @@ class PublicUtilityBookingViewController: UIViewController {
         numOfPeoplePicker.isHidden = false
     }
     
+    var isSelectingDate = false
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == CalendarViewController.shortName, let vc = segue.destination as? CalendarViewController {
             vc.setVC(selectedDate: dateToBeSubmitted ?? Calendar.current.startOfDay(for: Date()), minimumTimeSections: minimumTimeSections, numberOfPeople: numberOfPeopleToBeBooked) { [weak self] sections in
@@ -74,6 +75,10 @@ class PublicUtilityBookingViewController: UIViewController {
                 this.selectedTimeSections = sections
                 this.tableView.reloadData()
                 this.navigationController?.popToViewController(this, animated: true)
+            }
+            if isSelectingDate {
+                vc.shouldShowDatePicker = true
+                isSelectingDate = false
             }
         }
     }
@@ -140,6 +145,7 @@ extension PublicUtilityBookingViewController: UITableViewDataSource, UITableView
             if indexPath.row == 0 {
                 showNumberOfPeoplePicker()
             } else if indexPath.row == 1 {
+                isSelectingDate = true
                 performSegue(withIdentifier: CalendarViewController.shortName, sender: self)
             } else if indexPath.row == 2 {
                 performSegue(withIdentifier: CalendarViewController.shortName, sender: self)

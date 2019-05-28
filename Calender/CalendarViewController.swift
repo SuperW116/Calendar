@@ -70,10 +70,19 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpChildVC()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "日期", style: UIBarButtonItem.Style.plain, target: self, action: #selector(selectDate))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "日期", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showDatePicker))
     }
     
-    @objc func selectDate() {
+    fileprivate var shouldShowDatePicker = false
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if shouldShowDatePicker {
+            showDatePicker()
+            shouldShowDatePicker = false
+        }
+    }
+    
+    @objc func showDatePicker() {
         view.addSubview(datePicker)
         datePicker.frame = view.frame
     }
